@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>barcode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Escanear código</h1>
+  <ion-button (click)="scanCode()">Escanear</ion-button>
+  <div *ngIf="scannedData">
+    <p>Texto: {{scannedData.text}}</p>
+    <p>Formato: {{scannedData.format}}</p>
+    <ion-button *ngIf="scannedData.format === 'QR_CODE'" (click)="openLink()" >Ir al enlace</ion-button>
+  </div>
+
+  <h1>Generar un código QR</h1>
+  <ion-input type="text" [(ngModel)]="encodedData"></ion-input>
+  <ion-button (click)="encodeText()">Generar</ion-button>
+
+
+  <ion-button (click)="openLinkPrueba()">Prueba</ion-button>
+
+</ion-content>
